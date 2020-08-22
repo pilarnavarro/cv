@@ -1,0 +1,237 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Resume template - https://github.com/lquesada/resume
+%% Check that URL for licensing information.
+%% 
+%% Copyright (c) 2019, Luis Quesada Torres -
+%% https://github.com/lquesada | www.luisquesada.com
+%%
+%% Heavily based on (and old version of) the SIMPLE-RESUME-CV
+%% by zachscrivena, which is unlicensed.
+%% <https://github.com/zachscrivena/simple-resume-cv>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% INSTRUCTIONS FOR COMPILING THIS DOCUMENT ("resume.tex")
+%% TEX ---(XeLaTeX)---> PDF:
+%%
+%% Method 1: Use latexmk for fully automated document generation:
+%%   latexmk -xelatex "CV.tex"
+%%   (add the -pvc switch to automatically recompile on changes)
+%%
+%% Method 2: Use XeLaTeX directly:
+%%   xelatex "CV.tex"
+%%   (run multiple times to resolve cross-references if needed)
+%%
+%% PDF ---(pdf2htmlEX)> HTML:
+%%
+%% Install pdf2htmlEX from https://github.com/coolwanglu/pdf2htmlEX, then:
+%%   alias pdf2htmlEX='docker run -ti --rm -v `pwd`:/pdf bwits/pdf2htmlex pdf2htmlEX'
+%%   pdf2htmlEX --zoom 1.5 --process-outline 0 resume.pdf
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note: Search "SIZEMARKER" to find settings you can tweak to
+%       make the page, the margins, or the text bigger or smaller.
+
+
+% SIZEMARKER: You may want to replace "letterpaper" with "a4paper", but when
+% exporting to html, letterpaper can be printed in both letter and A4 sheets
+% of paper.
+% SIZEMARKER: You may also want to tweak the font size.
+\documentclass[letterpaper,10pt,oneside]{article}
+
+% Long table for page layout.
+\usepackage{longtable}
+\usepackage{calc}
+
+% SIZEMARKER: Page margins
+\usepackage[
+left=0.37in,
+right=0.65in,
+top=0.85in,
+bottom=0.45in,
+nohead,
+includefoot]{geometry}
+
+% Hyphenation: Disabled.
+\usepackage[none]{hyphenat}
+
+% XeLaTeX packages.
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+
+\renewcommand*{\familydefault}{\sfdefault}
+
+
+% PDF settings and properties.
+
+% Headers and footers: Blank header, page number in footer.
+% Commented: I don't want the page number in footer.
+\makeatletter
+\def\ps@plain{%
+\def\@oddhead{}%
+\def\@evenhead{}%
+\def\@oddfoot{}%
+\def\@evenfoot{}}
+%\def\@oddfoot{\footnotesize\hfill{Page}~{\thepage}~of~\pageref{LastPage}\hfill}%
+%\def\@evenfoot{\footnotesize\hfill{Page}~{\thepage}~of~\pageref{LastPage}\hfill}}
+\makeatother
+
+\pagestyle{plain}
+
+% Paragraph style: No indentation.
+\setlength{\parindent}{0in}
+
+% SIZEMARKER: Line spacing
+\renewcommand{\baselinestretch}{1.35}
+
+\newcommand{\DatestampY}[1]{#1}
+
+% Macro: body (rest of the document).
+% SIZEMARKER: Left vs. right columns
+\newenvironment{body}
+{\par\par
+\begin{longtable}{p{0.125\textwidth}p{0.84\textwidth}}}
+{\par\end{longtable}\par}
+
+% Macro: section (new section for Education, Research Experience, etc.).
+% SIZEMARKER: The separation here is between sections.
+\renewcommand{\section}[3]{\\[-0.7cm]\pdfbookmark[2]{#2}{#3}\\%
+\raggedleft  %align to the right
+{\fontsize{9.5pt}{9.5pt}\selectfont\bfseries\raggedright%
+\MakeUppercase{#1}}&}
+
+% SIZEMARKER: SmallEntryGap is a small vertical gap within a long entry
+\newcommand{\SmallEntryGap}{\par\vspace{0.38em}\par} 
+
+% Round image
+\usepackage{tikz}
+
+\newcommand{\roundpic}[4][]{
+\tikz\node [circle, minimum width = #2,
+path picture = {
+\node [#1] at (path picture bounding box.center) {
+\includegraphics[width=#3]{#4}};
+}] {};}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PREAMBLE.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% CV Info (to be customized).
+\newcommand{\CVTitle}{Pilar Navarro Ramírez}
+\newcommand{\CVNote}{CV compiled on {\today}}
+
+% PDF settings and properties.
+\usepackage{hyperref}
+\hypersetup{
+pdftitle={\CVTitle},
+pdfauthor={Pilar Navarro Ramírez},
+pdfcreator={},
+pdfproducer={},
+pdfkeywords={},
+pdfpagemode={},
+bookmarks=true,
+unicode=true,
+bookmarksopen=true,
+pdfstartview=FitH,
+pdfpagelayout=OneColumn,
+pdfpagemode=UseOutlines,
+hidelinks,
+breaklinks,
+colorlinks=true,
+linkcolor=blue,
+citecolor=blue,
+filecolor=blue,
+urlcolor=blue
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ACTUAL DOCUMENT.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%
+% TITLE BLOCK %
+%%%%%%%%%%%%%%%
+
+\begin{body}
+
+%\raggedleft\roundpic{1.85cm}{1.85cm}{pic.jpg}%
+&
+\vspace{-2.45cm} \par
+\huge{\textbf{Pilar Navarro Ramírez}} \par
+\large{\textbf{Mathematics and Computer Science}} \par
+\normalsize{Github account \href{https://github.com/pilarnavarro}{github.com/pilarnavarro} \textemdash\ Contact via  \href{https://www.linkedin.com/in/pilar-navarro-ramirez/} {linkedin.com/in/pilar-navarro-ramirez} or \href{pilarnavarily@gmail.com} {pilarnavarily@gmail.com}}
+% SIZEMARKER: Separation between header and content
+\vspace{0.1cm}
+
+%%%%%%%%%%%%%%%%
+%% EXPERIENCE %%
+%%%%%%%%%%%%%%%%
+
+%\section{Industry}{Industry}{PDF:Industry}
+
+%\SmallEntryGap%
+%\section{Relevant Projects}{Relevant Projects}{PDF:Relevant Projects}%
+%\SmallEntryGap%
+%%%%%%%%%%%%%%%
+%% STUDIES %%
+%%%%%%%%%%%%%%%
+
+\section{Academia}{Academia}{PDF:Academia}
+
+\textbf{BSc Mathematics and Computer Science} University of Granada\hfill \DatestampY{2016}--\DatestampY{now} \newline
+\textit{Relevant courses:} Data structures, Object Oriented Programming, Theory of Algorithms, Computer Architecture, Computer Graphics, Databases, Servers, Machine Learning, Algebra, Statistics and Probability, Functional Analysis, Differential Equations, Numerical Methods. \newline
+Current GPA 7.8/10
+
+\textbf{BSc Computer Science} University of Duisburg-Essen. Erasmus Program \hfill \DatestampY{2018}--\DatestampY{2019} \newline
+\textit{Relevant courses:} Artificial intelligence, Interactive systems, Computer Robot Vision, Embedded Systems, Automata, Distributed Systems \newline
+GPA 8.8/10
+
+
+\section{Publications}{Publications}{PDF:Publications} 
+Spatial variation of density and detectability of social media supporters during a protest event \hfill \DatestampY{2020}
+\SmallEntryGap
+
+%%%%%%%%%%%%%%%
+%% INTERESTS %%
+%%%%%%%%%%%%%%%
+
+\section{Skills}{Skills}{PDF:Skills}
+Programming skills with C/C++, Java, Ruby, MATLAB and Python. \newline
+Basic Web Development Knowledge (HTML, CSS, JavaScript) \newline
+Basic knowledge of Google Cloud \newline
+Scientific writing with {\LaTeX} \newline
+Good understanding of Git, VSCode, Linux and SQL
+
+\SmallEntryGap
+
+\section{Interests}{Interests}{PDF:Interests}
+
+\textbf{Clubes de Ciencia España} Participant in a workshop about the Internet of Things \hfill \DatestampY{2018}
+
+\textbf{Deep Learning Specialization} Offered in Coursera by deepleaning.ai. Professor Andrew Ng. \hfill \DatestampY{2020} \newline
+\href{https://www.coursera.org/specializations/deep-learning} {www.coursera.org/specializations/deep-learning} -- \href{https://coursera.org/share/44729d6e28d0a25156f56e8acd12afd0} {Certificate} \newline
+\textbf{Web Design for Everybody: Basics of Web Development and Coding} \newline
+Offered in Coursera by the University of Michigan \hfill \DatestampY{2020} \newline
+\href{https://www.coursera.org/specializations/web-design} {www.coursera.org/specializations/web-design} ---
+\href{https://coursera.org/share/ed7f5949aed0f26df8e6530f35d117b2}{Certificate}	\newline
+\textbf{Video Games Programming} with Godot 
+\SmallEntryGap
+\section{Languages}{Languages}{PDF:Languages}
+\textbf{Spanish} Native Language \newline
+\textbf{English} Intermediate Level	\newline
+\textbf{German} Intermediate Level \newline
+\end{body}
+
+\end{document}
